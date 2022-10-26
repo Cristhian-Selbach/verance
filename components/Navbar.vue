@@ -11,22 +11,20 @@
 
 <template>
 	<nav
-		class="flex items-baseline justify-between my-8 mx-8 sm:mx-24 lg:mx-44"
+		class="flex items-baseline justify-between mt-8 mx-8 sm:mx-24 lg:mx-44"
 	>
 		<!-- Logo -->
 		<div class="select-none">
 			<NuxtLink
 				to="/"
-				class="cursor-pointer w-fit p-0.5 text-[2.5rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-lightGreen to-darkGreen"
+				class="tracking-[-.1em] cursor-pointer w-fit p-0.5 text-[2.7rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-lightGreen to-darkGreen"
 			>
 				VeranceNews.
 			</NuxtLink>
 		</div>
 
 		<!-- Items -->
-		<div
-			class="hidden font-bold text-[1.1rem] items-center space-x-16 md:flex"
-		>
+		<div class="hidden font-bold text-lg items-center space-x-16 md:flex">
 			<NuxtLink to="/" class="hover:text-stone-600"> HOME</NuxtLink>
 			<NuxtLink to="/" class="hover:text-stone-600">CATEGORIES</NuxtLink>
 			<NuxtLink to="/" class="hover:text-stone-600"> ABOUT </NuxtLink>
