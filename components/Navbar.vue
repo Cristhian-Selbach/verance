@@ -33,7 +33,7 @@
 
 			<!-- Navbar button -->
 			<NuxtLink
-				class="whitespace-nowrap leading-3 bg-gradient-to-r from-lightGreen to-darkGreen tracking-tight text-white px-7 py-3 rounded-lg hover:scale-105 ease-out duration-300"
+				class="whitespace-nowrap bg-gradient-to-r from-lightGreen to-darkGreen tracking-tight text-white px-7 py-1.5 rounded-lg hover:scale-105 ease-out duration-300"
 				to="/"
 			>
 				GET START
@@ -52,6 +52,7 @@
 		</button>
 	</nav>
 
+	<!-- Nav on Mobile -->
 	<div class="md:hidden">
 		<div
 			ref="nav"
