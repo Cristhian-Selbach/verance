@@ -1,11 +1,11 @@
 <template>
-	<section class="flex items-center mt-24 md:mt-10">
+	<section class="flex items-center">
 		<!-- Texts -->
 		<div
 			class="text-center flex flex-col items-center md:text-left md:block"
 		>
 			<h1
-				class="font-bold text-7xl leading-[4rem] sm:leading-[5rem] sm:text-[6rem] xl:text-[7rem] xl:leading-[6rem]"
+				class="font-bold text-7xl leading-[4rem] sm:leading-[5rem] sm:text-[6rem] xl:text-[8rem] xl:leading-[6.8rem]"
 			>
 				Inside the main news.
 			</h1>
@@ -36,5 +36,8 @@
 	img {
 		width: 54%;
 		transform: translateX(10%);
+	}
+	section {
+		height: 80vh;
 	}
 </style>

@@ -6,3 +6,6 @@
 * {
 	letter-spacing: -0.08em;
 }
+*::selection {
+	background-color: #51afee41;
+}
