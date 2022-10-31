@@ -24,7 +24,7 @@
 				</NuxtLink>
 			</div>
 		</div>
-
+		<!-- Image -->
 		<img
 			class="hidden md:block"
 			src="~/assets/images/blogging-animate.svg"
