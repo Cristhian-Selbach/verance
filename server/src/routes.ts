@@ -25,4 +25,19 @@ router.get("/", async (req, res) => {
 	res.send(allNews.filter((n) => n));
 });
 
+router.get("/technology", async (req, res) => {
+	const { data } = await axios.get(
+		`${process.env.BASE_URL}technology&apiKey=${process.env.API_KEY}`
+	);
+
+	res.send(data.sources.filter((n) => n));
+});
+router.get("/science", async (req, res) => {
+	const { data } = await axios.get(
+		`${process.env.BASE_URL}science&apiKey=${process.env.API_KEY}`
+	);
+
+	res.send(data.sources.filter((n) => n));
+});
+
 export { router };
