@@ -26,7 +26,9 @@
 		<!-- Items -->
 		<div class="hidden font-bold text-lg items-center space-x-16 md:flex">
 			<NuxtLink to="/" class="hover:text-stone-600"> HOME</NuxtLink>
-			<NuxtLink to="/" class="hover:text-stone-600">CATEGORIES</NuxtLink>
+			<NuxtLink to="/categories" class="hover:text-stone-600"
+				>CATEGORIES</NuxtLink
+			>
 			<NuxtLink to="/" class="hover:text-stone-600"> ABOUT </NuxtLink>
 
 			<!-- Navbar button -->
