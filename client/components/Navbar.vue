@@ -29,7 +29,9 @@
 			<NuxtLink to="/categories" class="hover:text-stone-600"
 				>CATEGORIES</NuxtLink
 			>
-			<NuxtLink to="/" class="hover:text-stone-600"> ABOUT </NuxtLink>
+			<NuxtLink to="/about" class="hover:text-stone-600">
+				ABOUT
+			</NuxtLink>
 
 			<!-- Navbar button -->
 			<NuxtLink
@@ -59,8 +61,8 @@
 			class="absolute flex-col font-semibold items-center hidden self-end py-8 space-y-6 bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
 		>
 			<NuxtLink to="/">HOME</NuxtLink>
-			<NuxtLink to="/">CATEGORIES</NuxtLink>
-			<NuxtLink to="/">ABOUT</NuxtLink>
+			<NuxtLink to="/categories">CATEGORIES</NuxtLink>
+			<NuxtLink to="/about">ABOUT</NuxtLink>
 			<NuxtLink to="/">GET START</NuxtLink>
 		</div>
 	</div>

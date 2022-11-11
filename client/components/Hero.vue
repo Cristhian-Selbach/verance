@@ -1,5 +1,5 @@
 <template>
-	<section class="flex items-center">
+	<section class="flex items-center mt-20 md:h-[80vh] md:mt-0">
 		<!-- Texts -->
 		<div
 			class="text-center flex flex-col items-center md:text-left md:block"
@@ -36,8 +36,5 @@
 	img {
 		width: 54%;
 		transform: translateX(10%);
-	}
-	section {
-		height: 80vh;
 	}
 </style>
