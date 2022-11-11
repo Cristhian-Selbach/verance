@@ -4,23 +4,25 @@
 	>
 		<h1 class="font-bold text-4xl">Choose Category</h1>
 		<div class="flex w-full justify-between mt-20">
-			<div class="w-1/2 flex flex-col items-center">
+			<NuxtLink to="/" class="w-1/2 flex flex-col items-center">
 				<h2 class="font-semibold text-3xl text-mediumGreen">science</h2>
 				<img
-					class="w-[70%] mt-5"
+					class="w-[70%] mt-5 hover:scale-110 transition-all duration-700"
 					src="~/assets/images/astronaut-suit-animate.svg"
 				/>
-			</div>
+			</NuxtLink>
 
-			<div class="w-1/2 flex flex-col items-center">
+			<NuxtLink to="/" class="w-1/2 flex flex-col items-center">
 				<h2 class="font-semibold text-3xl text-mediumGreen">
 					technology
 				</h2>
 				<img
-					class="w-[70%] mt-5"
+					class="w-[70%] mt-5 hover:scale-110 transition-all duration-700"
 					src="~/assets/images/virtual-reality-animate.svg"
 				/>
-			</div>
+			</NuxtLink>
 		</div>
 	</section>
 </template>
+
+<style scoped></style>
