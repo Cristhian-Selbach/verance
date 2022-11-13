@@ -5,35 +5,49 @@ import axios from "axios";
 dotenv.config();
 const router = Router();
 
-function baseUrl(category: string, numberOfArticles: number) {
-	return `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=${numberOfArticles}&apiKey=${process.env.API_KEY}`;
+function baseUrl(category: string) {
+	return `https://newsdata.io/api/1/news?apikey=${process.env.API_KEY}&language=en&category=${category}`;
 }
 
 router.get("/", async (req, res) => {
-	const techNews = await axios.get(baseUrl("technology", 10));
-	const scienceNews = await axios.get(baseUrl("science", 10));
+	try {
+		const { data } = await axios.get(baseUrl("science,technology"));
 
-	const allNews: Array<Object> = [];
-
-	techNews.data.articles.forEach((element: Object, index: number) => {
-		if (index % 2 === 0) {
-			allNews[index] = element;
-			allNews[index + 1] = scienceNews.data.articles[index];
+		if (data.status != "success") {
+			res.status(400).send("error in api call");
 		}
-	});
 
-	res.send(allNews.filter((n) => n));
+		res.json(data);
+	} catch (error) {
+		res.status(400).send("error in api call");
+	}
 });
 
 router.get("/technology", async (req, res) => {
-	const { data } = await axios.get(baseUrl("technology", 20));
+	try {
+		const { data } = await axios.get(baseUrl("technology"));
 
-	res.send(data.articles.filter((n) => n));
+		if (data.status != "success") {
+			res.status(400).send("error in api call");
+		}
+
+		res.json(data);
+	} catch (error) {
+		res.status(400).send("error in api call");
+	}
 });
 router.get("/science", async (req, res) => {
-	const { data } = await axios.get(baseUrl("science", 20));
+	try {
+		const { data } = await axios.get(baseUrl("science"));
 
-	res.send(data.articles.filter((n) => n));
+		if (data.status != "success") {
+			res.status(400).send("error in api call");
+		}
+
+		res.json(data);
+	} catch (error) {
+		res.status(400).send("error in api call");
+	}
 });
 
 export { router };

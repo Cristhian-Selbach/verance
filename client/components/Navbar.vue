@@ -36,7 +36,7 @@
 			<!-- Navbar button -->
 			<NuxtLink
 				class="whitespace-nowrap bg-gradient-to-r from-lightGreen to-darkGreen tracking-tight text-white px-7 py-1.5 rounded-lg hover:scale-105 ease-out duration-300"
-				to="/"
+				to="/news"
 			>
 				GET START
 			</NuxtLink>
@@ -63,7 +63,7 @@
 			<NuxtLink to="/">HOME</NuxtLink>
 			<NuxtLink to="/categories">CATEGORIES</NuxtLink>
 			<NuxtLink to="/about">ABOUT</NuxtLink>
-			<NuxtLink to="/">GET START</NuxtLink>
+			<NuxtLink to="/news">GET START</NuxtLink>
 		</div>
 	</div>
 </template>

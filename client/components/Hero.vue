@@ -18,7 +18,7 @@
 				class="mb-10 w-fit hover:scale-105 ease-out duration-300 sm:mb-0"
 			>
 				<NuxtLink
-					to="/"
+					to="/news"
 					class="text-lg tracking-tight font-bold text-white bg-gradient-to-r from-lightGreen to-darkGreen rounded-lg px-8 py-2"
 					>GET START
 				</NuxtLink>
@@ -26,15 +26,13 @@
 		</div>
 		<!-- Image -->
 		<img
-			class="hidden md:block"
+			class="hidden w-[54%] translate-x-[10%] md:block"
 			src="~/assets/images/blogging-animate.svg"
 		/>
 	</section>
 </template>
 
-<style scoped>
+<style>
 	img {
-		width: 54%;
-		transform: translateX(10%);
 	}
 </style>
