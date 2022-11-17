@@ -20,11 +20,14 @@
 <template>
 	<section class="mx-8 mt-20 sm:mx-24 lg:mx-44">
 		<div class="flex w-full">
+			<!-- Featured News -->
 			<NuxtLink
 				to="/news"
-				class="h-[530px] shadow rounded-[1.2rem] w-2/3 p-5"
+				class="h-[40vw] shadow rounded-[1.2rem] w-2/3 p-5 xl:h-[600px] xl:mr-10"
 			>
-				<p class="uppercase text-zinc-400 font-semibold text-sm">
+				<p
+					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-sm"
+				>
 					{{ news[0].category[0] }} IN GENERAL
 				</p>
 				<div class="flex mt-3 h-1/2">
@@ -37,25 +40,76 @@
 					</div>
 
 					<h1
-						class="font-bold w-1/2 text-[2.2rem] leading-[2.5rem] ml-2"
+						class="font-bold w-1/2 ml-2 leading-[2.8vw] text-[2.8vw] xl:leading-[2.5rem] xl:text-[2.5rem]"
 					>
 						{{ news[0].title }}
 					</h1>
 				</div>
 				<div
-					class="text-[#959595] h-1/2 flex flex-col justify-around texts font-bold"
+					class="text-[#959595] h-1/2 flex flex-col justify-between texts font-bold text-[1.15vw] pt-5 xl:text-lg"
 				>
-					<p class="tracking-tighter">
-						{{ news[0].description }}<br />
+					<p v-if="news[0].content" class="tracking-tighter">
+						{{ news[0].description }}.<br />
 						{{ news[0].content.slice(0, 400) }}...
 					</p>
+					<p v-else>{{ news[0].description }}</p>
 
 					<p
 						v-if="news[0].creator"
-						class="tracking-tighter font-semibold"
+						class="tracking-tighter font-semibold pb-5"
 					>
 						By {{ news[0].creator[0] }} at
-						{{ format(news[2].pubDate) }}
+						{{ format(news[0].pubDate) }}
+					</p>
+					<p
+						v-else-if="news[0].source_id"
+						class="tracking-tighter font-semibold pb-5"
+					>
+						By {{ news[0].source_id }} at
+						{{ format(news[0].pubDate) }}
+					</p>
+				</div>
+			</NuxtLink>
+			<NuxtLink
+				to="/news"
+				class="ml-8 h-[40vw] shadow rounded-[1.2rem] w-1/3 p-5 xl:h-[600px]"
+			>
+				<p
+					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-sm"
+				>
+					{{ news[1].category[0] }} IN GENERAL
+				</p>
+
+				<div
+					class="text-[#959595] h-full flex flex-col justify-between texts font-bold leading-[1.3rem] text-[1.15vw] xl:text-lg"
+				>
+					<h1
+						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[2rem] xl:text-[2.3rem]"
+					>
+						{{ news[1].title }}
+					</h1>
+
+					<p>{{ news[1].description }}</p>
+					<div class="h-1/3 w-full">
+						<img
+							class="rounded-lg mr-2 object-cover w-full h-full"
+							:src="news[1].image_url"
+							alt=""
+						/>
+					</div>
+					<p
+						v-if="news[1].creator"
+						class="tracking-tighter font-semibold pb-5"
+					>
+						By {{ news[1].creator[0] }} at
+						{{ format(news[1].pubDate) }}
+					</p>
+					<p
+						v-else-if="news[1].source_id"
+						class="tracking-tighter font-semibold pb-5"
+					>
+						By {{ news[1].source_id }} at
+						{{ format(news[1].pubDate) }}
 					</p>
 				</div>
 			</NuxtLink>
