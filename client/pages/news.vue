@@ -23,30 +23,30 @@
 			<!-- Featured News -->
 			<NuxtLink
 				to="/news"
-				class="h-[40vw] shadow rounded-[1.2rem] w-2/3 p-5 xl:h-[600px] xl:mr-10"
+				class="h-[40vw] shadow rounded-[1.2rem] w-2/3 p-5 xl:h-[750px] xl:mr-10 xl:p-8"
 			>
 				<p
-					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-sm"
+					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-lg"
 				>
 					{{ news[0].category[0] }} IN GENERAL
 				</p>
 				<div class="flex mt-3 h-1/2">
 					<div class="h-full w-1/2">
 						<img
-							class="rounded-lg mr-2 object-cover w-full h-full"
+							class="rounded-lg mr-2 object-cover w-full h-full xl:rounded-[15px]"
 							:src="news[0].image_url"
 							alt=""
 						/>
 					</div>
 
 					<h1
-						class="font-bold w-1/2 ml-2 leading-[2.8vw] text-[2.8vw] xl:leading-[2.5rem] xl:text-[2.5rem]"
+						class="font-bold w-1/2 ml-2 leading-[3.2vw] text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl xl:ml-5"
 					>
 						{{ news[0].title }}
 					</h1>
 				</div>
 				<div
-					class="text-[#959595] h-1/2 flex flex-col justify-between texts font-bold text-[1.15vw] pt-5 xl:text-lg"
+					class="text-[#959595] h-1/2 flex flex-col justify-between texts font-bold text-[1.15vw] pt-10 pb-5 xl:text-2xl"
 				>
 					<p v-if="news[0].content" class="tracking-tighter">
 						{{ news[0].description }}.<br />
@@ -70,21 +70,22 @@
 					</p>
 				</div>
 			</NuxtLink>
+			<!-- Second news -->
 			<NuxtLink
 				to="/news"
-				class="ml-8 h-[40vw] shadow rounded-[1.2rem] w-1/3 p-5 xl:h-[600px]"
+				class="ml-8 h-[40vw] shadow rounded-[1.2rem] w-1/3 p-5 xl:h-[750px] xl:p-8"
 			>
 				<p
-					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-sm"
+					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-base"
 				>
 					{{ news[1].category[0] }} IN GENERAL
 				</p>
 
 				<div
-					class="text-[#959595] h-full flex flex-col justify-between texts font-bold leading-[1.3rem] text-[1.15vw] xl:text-lg"
+					class="text-[#959595] h-full flex flex-col justify-between texts font-bold leading-[1.3rem] text-[1.15vw] xl:text-xl"
 				>
 					<h1
-						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[2rem] xl:text-[2.3rem]"
+						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
 					>
 						{{ news[1].title }}
 					</h1>
@@ -92,7 +93,7 @@
 					<p>{{ news[1].description }}</p>
 					<div class="h-1/3 w-full">
 						<img
-							class="rounded-lg mr-2 object-cover w-full h-full"
+							class="rounded-lg mr-2 object-cover w-full h-full xl:rounded-[15px]"
 							:src="news[1].image_url"
 							alt=""
 						/>
