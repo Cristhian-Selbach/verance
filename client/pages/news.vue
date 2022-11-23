@@ -22,8 +22,9 @@
 		<div class="flex w-full">
 			<!-- Featured News -->
 			<NuxtLink
-				to="/news"
-				class="h-[40vw] shadow rounded-[1.2rem] w-2/3 p-5 xl:h-[750px] xl:mr-10 xl:p-8"
+				:to="news[0].link"
+				target="_blank"
+				class="h-[40vw] shadow rounded-[1.2rem] w-2/3 p-5 xl:h-[750px] xl:mr-10 xl:p-8 hover:scale-[1.01] ease-out duration-300"
 			>
 				<p
 					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-lg"
@@ -40,9 +41,16 @@
 					</div>
 
 					<h1
-						class="font-bold w-1/2 ml-2 leading-[3.2vw] text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl xl:ml-5"
+						v-if="news[0].title.length < 80"
+						class="font-bold w-1/2 ml-2 leading-[3vw] text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl xl:ml-5"
 					>
 						{{ news[0].title }}
+					</h1>
+					<h1
+						v-else
+						class="font-bold w-1/2 ml-2 leading-[3.2vw] text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl xl:ml-5"
+					>
+						{{ news[0].title.slice(0, 80) }}...
 					</h1>
 				</div>
 				<div
@@ -72,8 +80,9 @@
 			</NuxtLink>
 			<!-- Second news -->
 			<NuxtLink
-				to="/news"
-				class="ml-8 h-[40vw] shadow rounded-[1.2rem] w-1/3 p-5 xl:h-[750px] xl:p-8"
+				target="_blank"
+				:to="news[1].link"
+				class="ml-8 h-[40vw] shadow rounded-[1.2rem] w-1/3 p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
 			>
 				<p
 					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-base"
@@ -85,12 +94,19 @@
 					class="text-[#959595] h-full flex flex-col justify-between texts font-bold leading-[1.3rem] text-[1.15vw] xl:text-xl"
 				>
 					<h1
+						v-if="news[1].title.length < 70"
 						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
 					>
 						{{ news[1].title }}
 					</h1>
+					<h1
+						v-else
+						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
+					>
+						{{ news[1].title.slice(0, 70) }}...
+					</h1>
 
-					<p>{{ news[1].description }}</p>
+					<p>{{ news[1].description.slice(0, 190) }}...</p>
 					<div class="h-1/3 w-full">
 						<img
 							class="rounded-lg mr-2 object-cover w-full h-full xl:rounded-[15px]"
@@ -115,6 +131,60 @@
 				</div>
 			</NuxtLink>
 		</div>
+		<div class="grid w-full">
+			<NuxtLink
+				v-for="post in news"
+				target="_blank"
+				:to="post.link"
+				class="mt-10 h-[40vw] shadow rounded-[1.2rem] w-full p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
+			>
+				<p
+					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-base"
+				>
+					{{ post.category[0] }} IN GENERAL
+				</p>
+
+				<div
+					class="text-[#959595] h-full flex flex-col justify-between texts font-bold leading-[1.3rem] text-[1.15vw] xl:text-xl"
+				>
+					<h1
+						v-if="post.title.length < 70"
+						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
+					>
+						{{ post.title }}
+					</h1>
+					<h1
+						v-else
+						class="mt-3 font-bold text-black leading-[2.2vw] text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
+					>
+						{{ post.title.slice(0, 70) }}...
+					</h1>
+
+					<p>{{ post.description.slice(0, 190) }}...</p>
+					<div class="h-1/3 w-full">
+						<img
+							class="rounded-lg mr-2 object-cover w-full h-full xl:rounded-[15px]"
+							:src="post.image_url"
+							alt=""
+						/>
+					</div>
+					<p
+						v-if="post.creator"
+						class="tracking-tighter font-semibold pb-5"
+					>
+						By {{ post.creator[0] }} at
+						{{ format(post.pubDate) }}
+					</p>
+					<p
+						v-else-if="post.source_id"
+						class="tracking-tighter font-semibold pb-5"
+					>
+						By {{ post.source_id }} at
+						{{ format(post.pubDate) }}
+					</p>
+				</div>
+			</NuxtLink>
+		</div>
 	</section>
 </template>
 
@@ -123,5 +193,11 @@
 		-webkit-box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
 		-moz-box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
 		box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 30px;
 	}
 </style>
