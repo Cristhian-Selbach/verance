@@ -17,11 +17,11 @@
 			<div
 				class="mb-10 w-fit hover:scale-105 ease-out duration-300 sm:mb-0"
 			>
-				<NuxtLink
-					to="/news"
+				<a
+					href="/news"
 					class="text-lg tracking-tight font-bold text-white bg-gradient-to-r from-lightGreen to-darkGreen rounded-lg px-8 py-2"
 					>GET START
-				</NuxtLink>
+				</a>
 			</div>
 		</div>
 		<!-- Image -->
@@ -32,7 +32,4 @@
 	</section>
 </template>
 
-<style>
-	img {
-	}
-</style>
+<style></style>

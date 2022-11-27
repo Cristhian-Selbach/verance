@@ -34,12 +34,12 @@
 			</NuxtLink>
 
 			<!-- Navbar button -->
-			<NuxtLink
+			<a
 				class="whitespace-nowrap bg-gradient-to-r from-lightGreen to-darkGreen tracking-tight text-white px-7 py-1.5 rounded-lg hover:scale-105 ease-out duration-300"
-				to="/news"
+				href="/news"
 			>
 				GET START
-			</NuxtLink>
+			</a>
 		</div>
 
 		<!-- Toggle button -->

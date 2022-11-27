@@ -19,12 +19,12 @@
 
 <template>
 	<section class="mx-8 mt-20 sm:mx-24 lg:mx-44">
-		<div class="flex w-full">
+		<div class="featured-grid w-full">
 			<!-- Featured News -->
 			<NuxtLink
 				:to="news[0].link"
 				target="_blank"
-				class="h-[40vw] shadow rounded-[1.2rem] w-2/3 p-5 xl:h-[750px] xl:mr-10 xl:p-8 hover:scale-[1.01] ease-out duration-300"
+				class="h-[40vw] shadow rounded-[1.2rem] p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
 			>
 				<p
 					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-lg"
@@ -57,8 +57,8 @@
 					class="text-[#959595] h-1/2 flex flex-col justify-between texts font-bold text-[1.15vw] pt-10 pb-5 xl:text-2xl"
 				>
 					<p v-if="news[0].content" class="tracking-tighter">
-						{{ news[0].description }}.<br />
-						{{ news[0].content.slice(0, 400) }}...
+						{{ news[0].description.content }}.<br />
+						{{ news[0].content.slice(0, 300) }}...
 					</p>
 					<p v-else>{{ news[0].description }}</p>
 
@@ -82,7 +82,7 @@
 			<NuxtLink
 				target="_blank"
 				:to="news[1].link"
-				class="ml-8 h-[40vw] shadow rounded-[1.2rem] w-1/3 p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
+				class="h-[40vw] shadow rounded-[1.2rem] p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
 			>
 				<p
 					class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-base"
@@ -133,7 +133,7 @@
 		</div>
 		<div class="grid w-full">
 			<NuxtLink
-				v-for="post in news"
+				v-for="post in news.slice(2)"
 				target="_blank"
 				:to="post.link"
 				class="mt-10 h-[40vw] shadow rounded-[1.2rem] w-full p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
@@ -194,7 +194,11 @@
 		-moz-box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
 		box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
 	}
-
+	.featured-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-column-gap: 30px;
+	}
 	.grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
