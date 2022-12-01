@@ -20,9 +20,7 @@
 <template>
 	<section class="mx-8 mt-20 sm:mx-24 lg:mx-44">
 		<div class="featured-grid w-full">
-			<!-- Featured News -->
 			<FeaturedNewsCard :news="news[0]" />
-			<!-- Second news -->
 			<SecondNewsCard :news="news[1]" />
 		</div>
 		<div class="grid w-full">
