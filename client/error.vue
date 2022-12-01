@@ -16,7 +16,7 @@
 		</p>
 		<a
 			class="font-bold whitespace-nowrap bg-gradient-to-r from-lightGreen to-darkGreen tracking-tight text-white px-7 py-1.5 rounded-lg hover:scale-105 ease-out duration-300"
-			href="/news"
+			href="/"
 		>
 			MAIN PAGE
 		</a>

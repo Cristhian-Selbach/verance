@@ -1,15 +1,14 @@
 <script setup lang="ts">
 	import dayjs from "dayjs";
 	import localizedFormat from "dayjs/plugin/localizedFormat";
+	import { News } from "../pages/news.vue";
 
 	function format(date: any) {
 		dayjs.extend(localizedFormat);
 		return dayjs(date).format("lll");
 	}
 
-	const props = defineProps({
-		news: Object,
-	});
+	const props = defineProps<{ news: News }>();
 </script>
 <template>
 	<NuxtLink

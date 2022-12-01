@@ -16,7 +16,7 @@
 	<NuxtLink
 		target="_blank"
 		:to="post.link"
-		class="mt-10 h-[40vw] shadow rounded-[1.2rem] w-full p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
+		class="h-[40vw] shadow rounded-[1.2rem] w-full p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
 	>
 		<p
 			class="uppercase text-zinc-400 font-semibold text-[1.1vw] xl:text-base"

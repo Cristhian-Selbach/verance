@@ -1,11 +1,5 @@
 <script setup lang="ts">
-	import dayjs from "dayjs";
-	import localizedFormat from "dayjs/plugin/localizedFormat";
-
-	function format(date: any) {
-		dayjs.extend(localizedFormat);
-		return dayjs(date).format("lll");
-	}
+	import { format } from "../utils/format";
 
 	const props = defineProps({
 		news: Object,
