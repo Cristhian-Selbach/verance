@@ -1,9 +1,8 @@
 <script setup lang="ts">
 	import { format } from "../utils/format";
+	import { News } from "../pages/news.vue";
 
-	const props = defineProps({
-		news: Object,
-	});
+	const props = defineProps<{ news: News }>();
 </script>
 
 <template>
@@ -43,7 +42,7 @@
 			class="text-[#959595] h-1/2 flex flex-col justify-between texts font-bold text-[1.15vw] pt-10 pb-5 xl:text-2xl"
 		>
 			<p v-if="news.content" class="tracking-tighter">
-				{{ news.description.content }}.<br />
+				{{ news.description }}.<br />
 				{{ news.content.slice(0, 300) }}...
 			</p>
 			<p v-else>{{ news.description }}</p>

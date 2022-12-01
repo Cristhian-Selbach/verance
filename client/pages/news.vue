@@ -1,7 +1,4 @@
 <script setup lang="ts">
-	import dayjs from "dayjs";
-	import localizedFormat from "dayjs/plugin/localizedFormat";
-
 	export interface News {
 		title: string;
 		description: string;
@@ -13,14 +10,9 @@
 		creator: string[] | null;
 		pubDate: string;
 	}
-
-	function format(date: any) {
-		dayjs.extend(localizedFormat);
-		return dayjs(date).format("lll");
-	}
-
 	let news: Array<News>;
 	let load = false;
+
 	try {
 		const { data } = await useFetch<News[]>("http://localhost:8080/");
 		news = data.value!;
@@ -37,7 +29,7 @@
 	>
 		<FeaturedNewsCard class="col-span-2" :news="news[0]" />
 		<SecondNewsCard :news="news[1]" />
-		<NewsCard v-for="post in news.slice(2)" :post="post" />
+		<NewsCard v-for="post in news.slice(2)" :news="post" />
 	</section>
 	<section v-else class="w-full h-[70vh] flex justify-center items-center">
 		<img
