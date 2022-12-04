@@ -26,9 +26,9 @@
 <template>
 	<section
 		v-if="load"
-		class="grid grid-cols-2 md:grid-cols-3 mx-8 mt-20 sm:mx-24 gap-[10px] md:gap-[30px] lg:mx-44 xl:gap-[3vw]"
+		class="grid sm:grid-cols-2 md:grid-cols-3 mx-8 mt-20 sm:mx-24 gap-[10px] md:gap-[30px] lg:mx-44 xl:gap-[3vw]"
 	>
-		<FeaturedNewsCard class="col-span-2" :news="news[0]" />
+		<FeaturedNewsCard class="sm:col-span-2" :news="news[3]" />
 		<NewsCard v-for="post in news.slice(1)" :news="post" />
 	</section>
 	<section v-else class="w-full h-[70vh] flex justify-center items-center">

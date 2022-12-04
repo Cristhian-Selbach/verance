@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import { Router, Response } from "express";
+import { Router } from "express";
 import axios from "axios";
 
 dotenv.config();
@@ -25,12 +25,10 @@ router.get("/", async (req, res) => {
 		}
 
 		await Promise.all(
-			data.results.map(async (element) => {
+			data.results.map(async (element, index) => {
 				if (element.image_url) return;
-
 				const { data } = await axios.get(getImage(element.category[0]));
-				const random = Math.floor(Math.random() * 10);
-				element.image_url = await data.results[random].urls.small;
+				element.image_url = await data.results[index].urls.small;
 			})
 		);
 

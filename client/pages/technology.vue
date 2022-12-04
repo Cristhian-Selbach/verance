@@ -1,5 +1,15 @@
 <script setup lang="ts">
-	import { News } from "../pages/news.vue";
+	export interface News {
+		title: string;
+		description: string;
+		content: string | null;
+		image_url: string;
+		link: string;
+		source_id: string;
+		category: string[];
+		creator: string[] | null;
+		pubDate: string;
+	}
 
 	let news: Array<News>;
 	let load = false;
@@ -18,11 +28,10 @@
 <template>
 	<section
 		v-if="load"
-		class="grid grid-cols-3 gap-[30px] mx-8 mt-20 sm:mx-24 lg:mx-44"
+		class="grid sm:grid-cols-2 md:grid-cols-3 mx-8 mt-20 sm:mx-24 gap-[10px] md:gap-[30px] lg:mx-44 xl:gap-[3vw]"
 	>
-		<FeaturedNewsCard class="col-span-2" :news="news[0]" />
-		<SecondNewsCard :news="news[1]" />
-		<NewsCard v-for="post in news.slice(2)" :news="post" />
+		<FeaturedNewsCard class="sm:col-span-2" :news="news[0]" />
+		<NewsCard v-for="post in news.slice(1)" :news="post" />
 	</section>
 	<section v-else class="w-full h-[70vh] flex justify-center items-center">
 		<img

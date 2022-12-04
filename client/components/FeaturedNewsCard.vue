@@ -2,22 +2,33 @@
 	import { format } from "../utils/format";
 	import { News } from "../pages/news.vue";
 
-	const props = defineProps<{ news: News }>();
+	const { news } = defineProps<{ news: News }>();
+
+	const uniqueDescription =
+		news.content?.toLowerCase() !== news.description?.toLowerCase()
+			? `${news.description} ${news.content || ""}`
+			: news.description;
+
+	const slicedDescription =
+		uniqueDescription.length > 500
+			? `${uniqueDescription.slice(0, 500)}...`
+			: uniqueDescription;
 </script>
 
 <template>
 	<NuxtLink
 		:to="news.link"
 		target="_blank"
-		class="h-[500px] shadow rounded-[1.2rem] p-5 md:h-[40vw] xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
+		class="shadow rounded-[1.2rem] p-5 hover:scale-[1.01] ease-out duration-300 flex flex-col"
 	>
 		<p
 			class="uppercase text-zinc-400 font-semibold md:text-[1.1vw] xl:text-lg"
 		>
 			{{ news.category[0] }} IN GENERAL
 		</p>
-		<div class="flex mt-3 h-1/2">
-			<div class="h-full w-1/2">
+
+		<div class="block sm:flex mt-3 space-y-3 mb-3">
+			<div class="sm:w-1/2">
 				<img
 					class="rounded-lg mr-2 object-cover w-full h-full xl:rounded-[15px]"
 					:src="news.image_url"
@@ -26,39 +37,31 @@
 			</div>
 
 			<h1
-				v-if="news.title.length < 70"
-				class="font-bold w-1/2 ml-2 leading-[2.2rem] text-[2rem] md:leading-[3vw] md:text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl xl:ml-5"
+				class="mt-3 sm:mt-0 font-bold sm:w-1/2 leading-[2.2rem] text-[2rem] md:leading-[3vw] md:text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl sm:ml-3 xm:ml-5"
 			>
-				{{ news.title }}
-			</h1>
-			<h1
-				v-else
-				class="font-bold w-1/2 ml-2 leading-[2.2rem] text-[2rem] md:leading-[3vw] md:text-[2.8vw] xl:leading-[3.5rem] xl:text-[3.5rem] xl:text-text-6xl xl:ml-5"
-			>
-				{{ news.title.slice(0, 70) }}...
+				{{
+					news.title.length > 70
+						? `${news.title.slice(0, 70)}...`
+						: news.title
+				}}
 			</h1>
 		</div>
-		<div
-			class="text-[#959595] text-base  h-1/2 flex flex-col justify-between texts font-bold md:text-[1.15vw] pt-10 pb-5 xl:text-2xl"
-		>
-			<p v-if="news.content" class="tracking-tighter">
-				<p v-if="(news.description.length > 100)">
-					{{ news.description.slice(0, 100) }}...<br />
-				</p>
-				<p v-else>{{news.description}}</p>
-				
-				{{ news.content.slice(0, 300) }}...
-			</p>
-			
-			<p v-else>{{ news.description }}</p>
 
-			<p v-if="news.creator" class="tracking-tighter font-semibold pb-5">
+		<div
+			class="flex-1 text-[#959595] text-base flex flex-col justify-between texts font-bold md:text-[1.15vw] sm:pt-5 xl:text-2xl"
+		>
+			<p class="leading-normal mb-5">
+				{{ slicedDescription }}
+			</p>
+
+			<p v-if="news.creator" class="tracking-tighter font-semibold">
 				By {{ news.creator[0] }} at
 				{{ format(news.pubDate) }}
 			</p>
+
 			<p
 				v-else-if="news.source_id"
-				class="tracking-tighter font-semibold pb-5"
+				class="tracking-tighter font-semibold"
 			>
 				By {{ news.source_id }} at
 				{{ format(news.pubDate) }}

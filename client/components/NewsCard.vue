@@ -9,7 +9,7 @@
 	<NuxtLink
 		target="_blank"
 		:to="news.link"
-		class="h-[60vh] md:h-[40vw] shadow rounded-[1.2rem] w-full p-5 xl:h-[750px] xl:p-8 hover:scale-[1.01] ease-out duration-300"
+		class="shadow rounded-[1.2rem] p-5 xl:p-8 hover:scale-[1.01] ease-out duration-300"
 	>
 		<p
 			class="uppercase text-zinc-400 font-semibold md:text-[1.1vw] xl:text-base"

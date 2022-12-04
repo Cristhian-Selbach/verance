@@ -13,7 +13,7 @@ module.exports = {
 			sans: ["Poppins", "sans-serif"],
 		},
 		screens: {
-			sm: "520px",
+			sm: "700px",
 			md: "1000px",
 			lg: "1200px",
 			xl: "1800px",
