@@ -1,9 +1,6 @@
-import * as dotenv from "dotenv";
-import { Router } from "express";
+import type { Request, Response } from "express";
 import axios from "axios";
-
-dotenv.config();
-const router = Router();
+import cors from "micro-cors";
 
 function baseUrl(category: string) {
 	return `https://newsdata.io/api/1/news?apikey=${process.env.NEWS_API_KEY}&country=us&category=${category}`;
@@ -13,7 +10,7 @@ function getImage(query: string) {
 	return `https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${process.env.IMAGES_API_KEY}`;
 }
 
-router.get("/", async (req, res) => {
+const handler = async (req: Request, res: Response) => {
 	const { category = "science,technology" } = req.query;
 
 	try {
@@ -38,6 +35,9 @@ router.get("/", async (req, res) => {
 	} catch (error) {
 		res.status(400).send("error in api call " + error);
 	}
-});
+};
 
-export { router };
+export default cors({
+	allowMethods: ["GET"],
+	origin: "*",
+})(handler);

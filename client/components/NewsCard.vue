@@ -18,23 +18,21 @@
 		</p>
 
 		<div
-			class="text-[#959595] h-full flex flex-col justify-between texts font-bold text-sm md:leading-[1.5vw] md:text-[1.15vw] xl:text-xl"
+			class="justify-between text-[#959595] h-full flex flex-col texts font-bold text-sm md:leading-[1.5vw] md:text-[1.15vw] xl:text-xl"
 		>
 			<h1
-				v-if="news.title.length < 70"
 				class="leading-[1.5rem] text-2xl mt-3 font-bold text-black md:leading-[2.2vw] md:text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
 			>
-				{{ news.title }}
-			</h1>
-			<h1
-				v-else
-				class="leading-[1.5rem] text-2xl mt-3 font-bold text-black md:leading-[2.2vw] md:text-[2.2vw] xl:leading-[3.2rem] xl:text-[3rem]"
-			>
-				{{ news.title.slice(0, 70) }}...
+				{{
+					news.title.length > 70
+						? `${news.title.slice(0, 70)}...`
+						: news.title
+				}}
 			</h1>
 
 			<p>{{ news.description.slice(0, 190) }}...</p>
-			<div class="h-1/3 w-full">
+
+			<div class="w-full h-1/3">
 				<img
 					class="rounded-lg mr-2 object-cover w-full h-full xl:rounded-[15px]"
 					:src="news.image_url"
