@@ -8,7 +8,7 @@
 
 	try {
 		const { data } = await useFetch<News[]>(
-			config.public.API_URL + "?category=sciece"
+			config.public.API_URL + "?category=science"
 		);
 		news = data.value!;
 		load = true;
