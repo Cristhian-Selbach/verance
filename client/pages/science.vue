@@ -1,27 +1,19 @@
 <script setup lang="ts">
-	export interface News {
-		title: string;
-		description: string;
-		content: string | null;
-		image_url: string;
-		link: string;
-		source_id: string;
-		category: string[];
-		creator: string[] | null;
-		pubDate: string;
-	}
+	import { News } from "../pages/news.vue";
 
 	let news: Array<News>;
 	let load = false;
 
+	const config = useRuntimeConfig();
+
 	try {
 		const { data } = await useFetch<News[]>(
-			"http://localhost:8080/?category=science"
+			config.public.API_URL + "?category=sciece"
 		);
 		news = data.value!;
 		load = true;
 	} catch (e) {
-		console.log("error");
+		console.log("error", e);
 	}
 </script>
 
