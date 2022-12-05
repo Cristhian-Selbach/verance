@@ -26,7 +26,7 @@
 		</div>
 		<!-- Image -->
 		<img
-			class="hidden w-[54%] translate-x-[10%] md:block"
+			class="hidden w-[54%] translate-x-[10%] md:block z-[-10]"
 			src="~/assets/images/blogging-animate.svg"
 		/>
 	</section>

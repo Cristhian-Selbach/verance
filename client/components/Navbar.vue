@@ -11,7 +11,7 @@
 
 <template>
 	<nav
-		class="flex items-baseline justify-between mt-8 mx-8 sm:mx-24 lg:mx-44"
+		class="flex items-baseline justify-between mt-8 mx-8 sm:mx-24 lg:mx-44 z-10"
 	>
 		<!-- Logo -->
 		<div class="select-none">
